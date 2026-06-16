@@ -17,9 +17,9 @@ let orderNumber = '';
 
 // ── Hero Slides ───────────────────────────────────────
 const heroSlides = [
-  { title: 'Drop Two', subtitle: 'Zapenda Academy', desc: 'Class is officially in session. Swahili Shule — where fashion meets curiosity.', cta: 'Shop the Collection', page: 'academy', bg: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1400&q=80' },
-  { title: 'Drop One', subtitle: 'Silk Sun & Bukavu Brims', desc: 'Satin accessories crafted with love by our talented tailors in Bukavu, Congo.', cta: 'Shop Drop 1', page: 'academy', bg: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1400&q=80' },
-  { title: 'Our Story', subtitle: 'About Zapenda', desc: 'Every purchase creates opportunity for skilled artisans in the heart of Congo.', cta: 'Learn More', page: 'about', bg: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1400&q=80' },
+  { title: 'Drop Two', subtitle: 'Zapenda Academy', desc: 'Class is officially in session. Swahili Shule — where fashion meets curiosity.', cta: 'Shop the Collection', page: 'academy', bg: 'images/hero1.webp' },
+  { title: 'Drop One', subtitle: 'Silk Sun & Bukavu Brims', desc: 'Satin accessories crafted with love by our talented tailors in Bukavu, Congo.', cta: 'Shop Drop 1', page: 'academy', bg: 'images/hero2.webp' },
+  { title: 'Our Story', subtitle: 'About Zapenda', desc: 'Every purchase creates opportunity for skilled artisans in the heart of Congo.', cta: 'Learn More', page: 'about', bg: 'images/hero3.webp' },
 ];
 
 // ── Products ──────────────────────────────────────────
