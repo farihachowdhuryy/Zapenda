@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Order — Zapenda</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .step-badge { display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:var(--hot-pink);color:white;border-radius:50%;font-weight:800;font-size:14px;flex-shrink:0; }
+    .step-row { display:flex;align-items:flex-start;gap:16px;margin-bottom:8px; }
+    .step-row h3 { font-family:var(--font-heading);font-size:1.5rem;font-style:italic; }
+    .form-grid-3 { display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px; }
+    @media(max-width:768px){ .form-grid-3{grid-template-columns:1fr 1fr;} }
+    @media(max-width:480px){ .form-grid-3{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body data-page="custom">
+<div id="nav-mount"></div>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80')">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="tag">Design Your Own</span>
+    <h1>Custom Order Form ✨</h1>
+  </div>
+</div>
+<div class="kente-stripe"></div>
+
+<section class="section">
+  <div class="container" style="max-width:900px">
+
+    <!-- Intro -->
+    <div style="background:linear-gradient(135deg,var(--hot-pink-light),var(--turquoise-light));border-radius:16px;padding:36px;margin-bottom:40px;text-align:center">
+      <p style="font-size:1.5rem;margin-bottom:10px">✨ 🌍 💖</p>
+      <h2 style="font-family:var(--font-heading);font-size:2.2rem;font-style:italic;margin-bottom:12px">Bring Your Dream Garment to Life</h2>
+      <p style="color:var(--gray);max-width:580px;margin:0 auto 16px;line-height:1.8">This form is for <strong>completely custom garments</strong> not in our standard catalog — your design, your measurements, your vision. Fill out the form, upload your inspiration photos, and we'll contact you via WhatsApp to finalize your order.</p>
+      <p style="color:var(--hot-pink);font-weight:600;font-size:14px">Allow 6–8 weeks for fully custom pieces. Pricing varies based on design complexity.</p>
+    </div>
+
+    <!-- STEP 1: Contact Info -->
+    <div class="custom-form-card">
+      <div class="step-row">
+        <span class="step-badge">1</span>
+        <div>
+          <h3>Your Contact Info</h3>
+          <p class="subtitle">We'll use WhatsApp to follow up on your order.</p>
+        </div>
+      </div>
+      <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="form-field"><label>First Name <span style="color:var(--hot-pink)">*</span></label><input type="text" placeholder="First name" required></div>
+        <div class="form-field"><label>Last Name <span style="color:var(--hot-pink)">*</span></label><input type="text" placeholder="Last name" required></div>
+        <div class="form-field"><label>Email Address <span style="color:var(--hot-pink)">*</span></label><input type="email" placeholder="your@email.com" required></div>
+        <div class="form-field"><label>WhatsApp Number <span style="color:var(--hot-pink)">*</span></label><input type="tel" placeholder="+1 (313) 000-0000" required></div>
+        <div class="form-field" style="grid-column:1/-1"><label>City & Country</label><input type="text" placeholder="e.g. Detroit, USA"></div>
+      </div>
+    </div>
+
+    <!-- STEP 2: Garment Description -->
+    <div class="custom-form-card">
+      <div class="step-row">
+        <span class="step-badge">2</span>
+        <div>
+          <h3>Describe Your Garment</h3>
+          <p class="subtitle">Tell us what you want to create.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="form-field">
+          <label>Type of Garment <span style="color:var(--hot-pink)">*</span></label>
+          <select required>
+            <option value="">Select a type...</option>
+            <option>Dress</option>
+            <option>Two-Piece Set / Co-ord</option>
+            <option>Shirt / Blouse</option>
+            <option>Trousers / Pants</option>
+            <option>Suit / Formal wear</option>
+            <option>Jumpsuit / Romper</option>
+            <option>Skirt</option>
+            <option>Agbada / Traditional Garment</option>
+            <option>Head Wrap / Accessories</option>
+            <option>Other (describe below)</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Preferred Fabric(s) / Pattern</label>
+          <select>
+            <option value="">Not sure — help me choose</option>
+            <option>Ankara Print</option>
+            <option>Kente Print</option>
+            <option>Mud Cloth</option>
+            <option>Wax Print</option>
+            <option>Aso-Oke</option>
+            <option>Solid Color (specify in description)</option>
+            <option>Mixed / Let the tailor decide</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Preferred Colors</label>
+          <input type="text" placeholder="e.g. hot pink and turquoise, earth tones, all black, vibrant mix...">
+        </div>
+        <div class="form-field">
+          <label>Occasion / Purpose</label>
+          <input type="text" placeholder="e.g. wedding, birthday, everyday wear, photoshoot...">
+        </div>
+        <div class="form-field">
+          <label>Describe Your Vision in Detail <span style="color:var(--hot-pink)">*</span></label>
+          <textarea rows="5" placeholder="Describe the garment you want as clearly as possible. Include details like: length, sleeve style, neckline, silhouette, any special details (pockets, ruffles, cutouts), level of formality, vibe (bold & colorful, elegant, casual), etc." required></textarea>
+        </div>
+        <div class="form-field">
+          <label>Budget Range (USD)</label>
+          <select>
+            <option>Under $150</option>
+            <option>$150 – $300</option>
+            <option>$300 – $500</option>
+            <option>$500 – $1,000</option>
+            <option>$1,000+</option>
+            <option>Flexible / Not sure</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: Measurements -->
+    <div class="custom-form-card">
+      <div class="step-row">
+        <span class="step-badge">3</span>
+        <div>
+          <h3>Your Body Measurements</h3>
+          <p class="subtitle">Required fields marked with ✱. Visit our <a href="sizing-chart.html" style="color:var(--hot-pink)">Sizing Chart</a> for how to measure yourself.</p>
+        </div>
+      </div>
+
+      <div style="background:var(--turquoise-light);border-left:4px solid var(--turquoise);border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:24px;font-size:13px;color:var(--gray)">
+        💡 <strong>Tip:</strong> Use a soft measuring tape. Measure over light undergarments. Have someone help for best accuracy. All measurements in inches (in) unless you specify cm.
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray)">
+          Unit:
+          <div class="unit-toggle" style="border:2px solid var(--border);border-radius:999px;overflow:hidden">
+            <button type="button" class="unit-btn active" id="in-btn" onclick="this.classList.add('active');document.getElementById('cm-btn').classList.remove('active')">in</button>
+            <button type="button" class="unit-btn" id="cm-btn" onclick="this.classList.add('active');document.getElementById('in-btn').classList.remove('active')">cm</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body Basics -->
+      <div class="measure-group" style="margin-bottom:12px">
+        <div class="measure-group-label">Body Basics</div>
+        <div class="measure-grid">
+          <div class="measure-field">
+            <label>Height ✱</label>
+            <input type="text" placeholder="e.g. 65 in / 165 cm" required>
+            <span class="measure-tip">Stand straight without shoes, from top of head to floor.</span>
+          </div>
+          <div class="measure-field">
+            <label>Weight</label>
+            <input type="text" placeholder="e.g. 145 lbs / 66 kg">
+            <span class="measure-tip">Helps us recommend the right fabric weight for you.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upper Body -->
+      <div class="measure-group" style="margin-bottom:12px">
+        <div class="measure-group-label">Upper Body</div>
+        <div class="measure-grid">
+          <div class="measure-field">
+            <label>Bust / Chest ✱</label>
+            <input type="text" placeholder="e.g. 38 in" required>
+            <span class="measure-tip">Around the fullest part of your chest, arms relaxed at sides.</span>
+          </div>
+          <div class="measure-field">
+            <label>Under Bust</label>
+            <input type="text" placeholder="e.g. 33 in">
+            <span class="measure-tip">Directly under your bust, around your rib cage.</span>
+          </div>
+          <div class="measure-field">
+            <label>Shoulder Width</label>
+            <input type="text" placeholder="e.g. 16 in">
+            <span class="measure-tip">Across your back from one shoulder tip to the other.</span>
+          </div>
+          <div class="measure-field">
+            <label>Neck Circumference</label>
+            <input type="text" placeholder="e.g. 14 in">
+            <span class="measure-tip">Around the base of your neck, where a collar would sit.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mid Section -->
+      <div class="measure-group" style="margin-bottom:12px">
+        <div class="measure-group-label">Mid Section</div>
+        <div class="measure-grid">
+          <div class="measure-field">
+            <label>Waist ✱</label>
+            <input type="text" placeholder="e.g. 30 in" required>
+            <span class="measure-tip">Your natural waistline — the narrowest part of your torso.</span>
+          </div>
+          <div class="measure-field">
+            <label>Hips / Seat ✱</label>
+            <input type="text" placeholder="e.g. 42 in" required>
+            <span class="measure-tip">Around the fullest part of your hips, about 8 inches below your waist.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lower Body -->
+      <div class="measure-group" style="margin-bottom:12px">
+        <div class="measure-group-label">Lower Body</div>
+        <div class="measure-grid">
+          <div class="measure-field">
+            <label>Inseam</label>
+            <input type="text" placeholder="e.g. 30 in">
+            <span class="measure-tip">From the crotch seam down to the floor along the inner leg.</span>
+          </div>
+          <div class="measure-field">
+            <label>Thigh Circumference</label>
+            <input type="text" placeholder="e.g. 24 in">
+            <span class="measure-tip">Around the fullest part of your thigh, at the top.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arms & Length -->
+      <div class="measure-group">
+        <div class="measure-group-label">Arms & Garment Length</div>
+        <div class="measure-grid">
+          <div class="measure-field">
+            <label>Sleeve Length</label>
+            <input type="text" placeholder="e.g. 24 in">
+            <span class="measure-tip">From shoulder tip to wrist, with arm slightly bent.</span>
+          </div>
+          <div class="measure-field">
+            <label>Wrist Circumference</label>
+            <input type="text" placeholder="e.g. 6.5 in">
+            <span class="measure-tip">Around your wrist at the wrist bone.</span>
+          </div>
+          <div class="measure-field">
+            <label>Back Length</label>
+            <input type="text" placeholder="e.g. 16 in">
+            <span class="measure-tip">From the nape of your neck straight down to your natural waist.</span>
+          </div>
+          <div class="measure-field">
+            <label>Desired Garment Length ✱</label>
+            <input type="text" placeholder="e.g. 42 in (floor length)">
+            <span class="measure-tip">From natural waist (or shoulder) to desired hemline.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-field" style="margin-top:16px">
+        <label>Any specific fit notes</label>
+        <textarea rows="3" placeholder="e.g. I have broad shoulders, I prefer extra room in the hips, I like fitted at the waist, my arms are longer than average, etc."></textarea>
+      </div>
+    </div>
+
+    <!-- STEP 4: Inspiration Photos -->
+    <div class="custom-form-card">
+      <div class="step-row">
+        <span class="step-badge">4</span>
+        <div>
+          <h3>Inspiration Photos</h3>
+          <p class="subtitle">Upload images that show the style, silhouette, fabric, or details you love. The more you share, the better!</p>
+        </div>
+      </div>
+      <div class="file-drop" onclick="document.getElementById('inspo-upload').click()">
+        <div class="icon">📸</div>
+        <p><strong>Click to upload</strong> or drag & drop</p>
+        <p style="margin-top:6px">PNG, JPG, JPEG up to 10MB each — up to 5 images</p>
+        <input type="file" id="inspo-upload" accept="image/*" multiple onchange="previewFiles(this)">
+      </div>
+      <div id="file-preview" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"></div>
+      <p style="font-size:12px;color:var(--gray);margin-top:10px">💡 You can also send photos directly via WhatsApp after submitting this form.</p>
+    </div>
+
+    <!-- STEP 5: WhatsApp & Submit -->
+    <div class="whatsapp-section">
+      <h3>Ready? Let's Chat on WhatsApp 💬</h3>
+      <p>Fill out the form above and click the button below. We'll review your submission and follow up on WhatsApp within 24–48 hours to discuss your custom order, finalize details, and provide a quote.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <button onclick="submitCustomOrder()" style="background:white;color:#25D366;padding:14px 36px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s">Submit Form First</button>
+        <a id="whatsapp-link" href="https://wa.me/13131234567?text=Hi%20Zapenda!%20I%20submitted%20a%20custom%20order%20form%20and%20would%20love%20to%20discuss%20my%20design%20with%20you." target="_blank" class="btn-whatsapp">📱 Open WhatsApp</a>
+      </div>
+      <p style="margin-top:20px;font-size:12px;opacity:.75">WhatsApp: +1 (313) 123-4567 &nbsp;|&nbsp; Email: info@zapendashop.com</p>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+<div id="modal-mount"></div>
+<div id="chat-mount"></div>
+<div class="toast-container" id="toast-container"></div>
+
+<script src="js/shared.js"></script>
+<script>
+function previewFiles(input) {
+  const preview = document.getElementById('file-preview');
+  preview.innerHTML = '';
+  Array.from(input.files).slice(0,5).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.style.cssText = 'width:100px;height:100px;object-fit:cover;border-radius:8px;border:2px solid var(--hot-pink)';
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function submitCustomOrder() {
+  showToast('Form submitted! Opening WhatsApp... 💖', '#25D366');
+  setTimeout(() => {
+    window.open(document.getElementById('whatsapp-link').href, '_blank');
+  }, 800);
+}
+</script>
+</body>
+</html>

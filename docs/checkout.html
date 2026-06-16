@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Zapenda</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="">
+<div id="nav-mount"></div>
+<div class="kente-stripe"></div>
+<section class="section" style="padding-top:40px">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px">
+      <a href="index.html" style="font-family:var(--font-heading);font-size:2rem;font-style:italic;color:var(--hot-pink);text-decoration:none">Zapenda</a>
+      <div style="display:flex;gap:10px;font-size:12px;color:var(--gray);align-items:center">
+        <a href="cart.html" style="color:var(--hot-pink);font-weight:600">Cart</a>
+        <span>›</span><span style="font-weight:700;color:var(--charcoal)">Information</span>
+        <span>›</span><span>Payment</span>
+      </div>
+    </div>
+
+    <form onsubmit="handleCheckout(event)">
+      <div class="checkout-layout">
+        <div>
+          <div class="form-card">
+            <h3>Contact Information</h3>
+            <div class="form-grid full">
+              <div class="form-field"><label>Email <span style="color:var(--hot-pink)">*</span></label><input type="email" placeholder="your@email.com" required></div>
+              <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray);cursor:pointer"><input type="checkbox" checked> Email me with news and offers</label>
+            </div>
+          </div>
+          <div class="form-card">
+            <h3>Shipping Address</h3>
+            <div class="form-grid">
+              <div class="form-field"><label>First Name <span style="color:var(--hot-pink)">*</span></label><input type="text" required></div>
+              <div class="form-field"><label>Last Name <span style="color:var(--hot-pink)">*</span></label><input type="text" required></div>
+            </div>
+            <div class="form-grid full" style="margin-top:16px">
+              <div class="form-field"><label>Address <span style="color:var(--hot-pink)">*</span></label><input type="text" placeholder="Street address" required></div>
+              <div class="form-field"><label>Apartment, suite, etc.</label><input type="text" placeholder="Apt, suite, unit (optional)"></div>
+            </div>
+            <div class="form-grid" style="margin-top:16px">
+              <div class="form-field"><label>City <span style="color:var(--hot-pink)">*</span></label><input type="text" required></div>
+              <div class="form-field"><label>State / Province</label><select><option>Michigan</option><option>New York</option><option>California</option><option>Texas</option><option>Florida</option><option>Other US State</option><option>International</option></select></div>
+            </div>
+            <div class="form-grid" style="margin-top:16px">
+              <div class="form-field"><label>ZIP / Postal Code <span style="color:var(--hot-pink)">*</span></label><input type="text" required></div>
+              <div class="form-field"><label>Country <span style="color:var(--hot-pink)">*</span></label><select><option>United States</option><option>Canada</option><option>United Kingdom</option><option>France</option><option>Belgium</option><option>Congo (DRC)</option><option>Other</option></select></div>
+            </div>
+            <p style="font-size:12px;color:var(--gray);margin-top:14px;padding:12px;background:var(--turquoise-light);border-radius:8px">💡 Shipping will be calculated based on your delivery address. See our <a href="shipping.html" style="color:var(--hot-pink);text-decoration:underline">Shipping Policy</a>.</p>
+          </div>
+          <div class="form-card">
+            <h3>Order Notes</h3>
+            <div class="form-field">
+              <label>Special Instructions (optional)</label>
+              <textarea rows="3" placeholder="Measurements, fit preferences, or special notes for your order..."></textarea>
+            </div>
+          </div>
+          <div class="form-card">
+            <h3>Payment</h3>
+            <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+              <button type="button" class="btn-primary" style="font-size:10px;padding:9px 20px">💳 Credit Card</button>
+              <button type="button" class="btn-outline" style="font-size:10px;padding:9px 20px">PayPal</button>
+              <button type="button" class="btn-outline" style="font-size:10px;padding:9px 20px">Shop Pay</button>
+            </div>
+            <div class="form-grid full">
+              <div class="form-field"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456"></div>
+            </div>
+            <div class="form-grid" style="margin-top:14px">
+              <div class="form-field"><label>Expiry Date</label><input type="text" placeholder="MM / YY"></div>
+              <div class="form-field"><label>Security Code (CVV)</label><input type="text" placeholder="CVV"></div>
+            </div>
+            <div class="form-field" style="margin-top:14px"><label>Name on Card</label><input type="text" placeholder="Full name as on card"></div>
+          </div>
+          <div style="margin-bottom:16px">
+            <p style="font-size:12px;color:var(--gray);margin-bottom:16px;line-height:1.7">By placing your order, you agree to our <a href="privacy-policy.html" style="color:var(--hot-pink);text-decoration:underline">Privacy Policy</a>, <a href="refund-policy.html" style="color:var(--hot-pink);text-decoration:underline">Refund Policy</a>, and <a href="terms-of-service.html" style="color:var(--hot-pink);text-decoration:underline">Terms of Service</a>.</p>
+            <button type="submit" class="btn-primary" style="width:100%;padding:18px;justify-content:center;font-size:13px">🎉 Place Order</button>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <h3>Order Summary</h3>
+          <div id="checkout-items" class="summary-items"></div>
+          <div class="summary-totals">
+            <div class="summary-row"><span>Subtotal</span><span id="checkout-sub">$0.00</span></div>
+            <div class="summary-row"><span>Shipping</span><span style="color:var(--gray)">Calculated at delivery</span></div>
+            <div class="summary-row total"><span>Total</span><span id="checkout-total">$0.00</span></div>
+          </div>
+          <div style="background:var(--hot-pink-light);border-radius:10px;padding:14px;margin-top:16px;font-size:13px;color:var(--charcoal);line-height:1.6">
+            🌍 Made-to-order by our tailors in Congo. Allow 4–6 weeks for delivery.
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<div id="footer-mount"></div>
+<div id="chat-mount"></div>
+<div class="toast-container" id="toast-container"></div>
+<script src="js/shared.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cart = getCart();
+  const total = cart.reduce((s,i) => s + i.price*i.quantity, 0);
+  document.getElementById('checkout-items').innerHTML = cart.length
+    ? cart.map(item => `
+      <div class="summary-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div style="flex:1">
+          <p style="font-size:13px;font-weight:600">${item.name} × ${item.quantity}</p>
+          <p style="font-size:11px;color:var(--gray)">${item.variant||''}</p>
+        </div>
+        <span style="font-weight:700;color:var(--hot-pink);white-space:nowrap">$${(item.price*item.quantity).toFixed(2)}</span>
+      </div>`).join('')
+    : '<p style="font-size:13px;color:var(--gray)">No items in cart. <a href="index.html" style="color:var(--hot-pink)">Shop now →</a></p>';
+  document.getElementById('checkout-sub').textContent = '$' + total.toFixed(2);
+  document.getElementById('checkout-total').textContent = '$' + total.toFixed(2);
+});
+
+function handleCheckout(e) {
+  e.preventDefault();
+  const orderNum = 'ZAP-' + Math.floor(10000 + Math.random() * 90000);
+  localStorage.setItem('zapenda_order', orderNum);
+  localStorage.removeItem('zapenda_cart');
+  window.location.href = 'order-confirmation.html';
+}
+</script>
+</body>
+</html>

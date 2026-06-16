@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zapenda Staples — Zapenda</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="shop">
+<div id="nav-mount"></div>
+<div class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=80')">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="tag">Always Available</span>
+    <h1>Zapenda Staples 👗</h1>
+  </div>
+</div>
+<div class="kente-stripe"></div>
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;max-width:640px;margin:0 auto 48px">
+      <span class="section-subtitle">Pre-Order Anytime</span>
+      <h2 class="section-title">Made-to-Order Garments</h2>
+      <div class="divider center"></div>
+      <p style="color:var(--gray);line-height:1.75">All garments are genderless and made-to-order by our amazing tailors in Congo. Choose standard sizes (XS–3XL) or enter custom measurements. Allow 4–6 weeks for production and delivery.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;background:var(--gray-light);border-radius:14px;padding:24px">
+      <div style="text-align:center"><div style="font-size:2rem;margin-bottom:8px">🌍</div><h4 style="font-family:var(--font-heading);font-size:1.2rem;font-style:italic;margin-bottom:6px">Congo Crafted</h4><p style="font-size:13px;color:var(--gray)">Made by skilled artisans in Bukavu, Congo</p></div>
+      <div style="text-align:center"><div style="font-size:2rem;margin-bottom:8px">📏</div><h4 style="font-family:var(--font-heading);font-size:1.2rem;font-style:italic;margin-bottom:6px">XS–3XL + Custom</h4><p style="font-size:13px;color:var(--gray)">Standard sizes or your exact measurements</p></div>
+      <div style="text-align:center"><div style="font-size:2rem;margin-bottom:8px">♻️</div><h4 style="font-family:var(--font-heading);font-size:1.2rem;font-style:italic;margin-bottom:6px">Zero Waste</h4><p style="font-size:13px;color:var(--gray)">Only made when ordered — sustainable fashion</p></div>
+    </div>
+    <div class="product-grid" id="staples-grid"></div>
+    <div style="text-align:center;margin-top:48px;background:linear-gradient(135deg,var(--hot-pink-light),var(--turquoise-light));border-radius:14px;padding:40px">
+      <h3 style="font-family:var(--font-heading);font-size:2rem;font-style:italic;margin-bottom:12px">Want Something Completely Custom?</h3>
+      <p style="color:var(--gray);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.75">Design your own unique garment — your measurements, your fabric, your vision. Contact us via WhatsApp.</p>
+      <a href="custom-order-form.html" class="btn-primary">✨ Start Custom Order</a>
+    </div>
+  </div>
+</section>
+<div id="footer-mount"></div>
+<div id="modal-mount"></div>
+<div id="chat-mount"></div>
+<div class="toast-container" id="toast-container"></div>
+<script src="js/shared.js"></script>
+<script>document.addEventListener('DOMContentLoaded', () => renderProductGrid('staples-grid', 'staples'));</script>
+</body>
+</html>

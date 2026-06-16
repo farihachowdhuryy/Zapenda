@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart — Zapenda</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="">
+<div id="nav-mount"></div>
+<section class="section">
+  <div class="container">
+    <h1 style="font-family:var(--font-heading);font-size:3rem;font-style:italic;margin-bottom:8px">Your Cart 🛒</h1>
+    <div class="kente-stripe" style="margin-bottom:36px"></div>
+    <div id="cart-content">
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:start" id="cart-layout">
+        <div id="cart-items-list"></div>
+        <div style="background:white;border:1px solid var(--border);border-radius:16px;padding:28px;position:sticky;top:90px">
+          <h3 style="font-family:var(--font-heading);font-size:1.6rem;font-style:italic;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)">Order Summary</h3>
+          <div id="cart-summary-items" style="margin-bottom:16px"></div>
+          <div style="border-top:1px solid var(--border);padding-top:14px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px"><span>Subtotal</span><span id="cart-sub">$0.00</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px"><span>Shipping</span><span style="color:var(--gray)">Calculated at checkout</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:1.2rem;font-weight:800;color:var(--hot-pink);padding-top:10px;border-top:1px solid var(--border)"><span>Total</span><span id="cart-total">$0.00</span></div>
+          </div>
+          <a href="checkout.html" class="btn-primary" style="width:100%;padding:16px;justify-content:center;margin-top:20px;display:flex">Check Out</a>
+          <a href="index.html" class="btn-outline" style="width:100%;padding:14px;justify-content:center;margin-top:10px;display:flex">Continue Shopping</a>
+          <p style="font-size:12px;color:var(--gray);text-align:center;margin-top:12px;line-height:1.6">See our <a href="refund-policy.html" style="color:var(--hot-pink);text-decoration:underline">Refund Policy</a> &amp; <a href="shipping.html" style="color:var(--hot-pink);text-decoration:underline">Shipping</a> info.</p>
+        </div>
+      </div>
+      <div id="cart-empty" style="display:none;text-align:center;padding:80px 0">
+        <div style="font-size:4rem;margin-bottom:16px">🛒</div>
+        <h2 style="font-family:var(--font-heading);font-size:2rem;font-style:italic;margin-bottom:12px">Your cart is empty</h2>
+        <p style="color:var(--gray);margin-bottom:28px">Add some amazing pieces to your cart to get started.</p>
+        <a href="index.html" class="btn-primary">Start Shopping</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer-mount"></div>
+<div id="chat-mount"></div>
+<div class="toast-container" id="toast-container"></div>
+<script src="js/shared.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cart = getCart();
+  if (!cart.length) {
+    document.getElementById('cart-layout').style.display = 'none';
+    document.getElementById('cart-empty').style.display = 'block';
+    return;
+  }
+  const total = cart.reduce((s,i) => s + i.price*i.quantity, 0);
+  document.getElementById('cart-items-list').innerHTML = cart.map((item,idx) => `
+    <div style="display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border);align-items:start">
+      <img src="${item.image}" style="width:90px;height:110px;object-fit:cover;border-radius:10px;flex-shrink:0">
+      <div style="flex:1">
+        <h3 style="font-family:var(--font-heading);font-size:1.3rem;font-style:italic;margin-bottom:4px">${item.name}</h3>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:8px">${item.variant || ''}</p>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+          <div class="qty-control" style="width:fit-content">
+            <button onclick="updateQty(${idx},-1)">−</button>
+            <span>${item.quantity}</span>
+            <button onclick="updateQty(${idx},1)">+</button>
+          </div>
+          <button onclick="removeItem(${idx})" style="font-size:12px;color:#e53935;font-weight:600;background:none;border:none;cursor:pointer;padding:4px 8px;border-radius:4px;transition:background .2s" onmouseover="this.style.background='#fee'" onmouseout="this.style.background='none'">Remove</button>
+        </div>
+        <p style="font-size:1.1rem;font-weight:800;color:var(--hot-pink)">$${(item.price*item.quantity).toFixed(2)}</p>
+      </div>
+    </div>`).join('');
+  document.getElementById('cart-summary-items').innerHTML = cart.map(item => `
+    <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px">
+      <span>${item.name} × ${item.quantity}</span>
+      <span style="font-weight:600">$${(item.price*item.quantity).toFixed(2)}</span>
+    </div>`).join('');
+  document.getElementById('cart-sub').textContent = '$' + total.toFixed(2);
+  document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+});
+
+function removeItem(idx) {
+  removeFromCart(idx);
+  location.reload();
+}
+
+function updateQty(idx, d) {
+  const cart = getCart();
+  cart[idx].quantity = Math.max(1, cart[idx].quantity + d);
+  saveCart(cart);
+  location.reload();
+}
+</script>
+</body>
+</html>
