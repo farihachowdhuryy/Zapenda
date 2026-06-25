@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arm Candy — Zapenda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="scroll-progress"></div>
+<div class="cursor-dot"></div><div class="cursor-ring"></div>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">ZA<span>P</span>ENDA</a>
+    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="about.html">About</a></li><li><a href="arm-candy.html" class="active">Arm Candy</a></li><li><a href="blog.html">Journal</a></li><li><a href="sizing.html">Sizing</a></li><li><a href="custom-order.html" class="nav-custom-order-link">Custom Order</a></li></ul>
+    <div class="nav-actions"><a href="account.html" class="nav-icon-btn">👤</a><button class="nav-icon-btn nav-cart-btn" data-open-cart style="position:relative">🛍️ <span class="cart-badge" style="display:none">0</span></button><button class="nav-hamburger"><span></span><span></span><span></span></button></div>
+  </div>
+  <div class="nav-mobile"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="arm-candy.html">Arm Candy</a><a href="blog.html">Journal</a><a href="account.html">Account</a><a href="custom-order.html" class="nav-mobile-custom">✦ Custom Order</a></div>
+</nav>
+<div class="mini-cart-overlay" id="mini-cart-overlay"></div>
+<aside class="mini-cart" id="mini-cart">
+  <div class="mini-cart-header"><h3>Your Cart</h3><button class="mini-cart-close" id="mini-cart-close">✕</button></div>
+  <div class="mini-cart-items" id="mini-cart-items"></div>
+  <div class="mini-cart-footer"><div class="mini-cart-subtotal"><span>Subtotal</span><span id="mini-cart-subtotal">$0.00</span></div><div class="mini-cart-btns"><a href="cart.html" class="btn btn-outline btn-full">View Cart</a><a href="checkout.html" class="btn btn-primary btn-full">Checkout</a></div></div>
+</aside>
+
+<div style="background:linear-gradient(135deg,var(--dark) 0%,var(--forest) 100%);padding:72px 32px 56px;overflow:hidden;position:relative">
+  <div style="position:absolute;top:-40px;right:-40px;width:300px;height:300px;background:radial-gradient(circle,rgba(196,137,42,0.2),transparent);border-radius:50%"></div>
+  <div class="container">
+    <div class="eyebrow reveal" style="color:var(--amber)">Limited Edition</div>
+    <h1 style="color:var(--ivory);margin:12px 0" class="reveal reveal-delay-1">Zapenda Arm Candy</h1>
+    <p style="color:rgba(250,249,244,0.75);max-width:540px" class="reveal reveal-delay-2">A collection of handcrafted beaded mini bags — each one a wearable work of art. Made by skilled artisans in Congo.</p>
+  </div>
+</div>
+
+<div class="arm-candy-section">
+  <div class="arm-candy-grid">
+    <div class="reveal">
+      <img id="arm-candy-main-img" class="arm-candy-main-img" src="https://cdn.shopify.com/s/files/1/0074/2060/8612/products/IMG_7606.jpg?v=1666040300" alt="Zapenda Arm Candy">
+      <div class="arm-candy-thumbs" id="arm-candy-thumbs"></div>
+    </div>
+    <div class="arm-candy-info reveal reveal-delay-2">
+      <div class="eyebrow" style="color:var(--amber);margin-bottom:12px">Handcrafted Beaded Bag</div>
+      <h1 style="color:var(--forest);margin-bottom:12px">Arm Candy</h1>
+      <p>A stunning statement accessory handcrafted by our artisans in Congo. Each bag is made with hand-strung beads — no two are exactly alike.</p>
+      <p>Wear it crossbody, on the shoulder, or as a wrist clutch. It goes with everything.</p>
+      <div class="arm-candy-price">$200.00</div>
+      <div class="modal-section-label">Select Colour</div>
+      <div class="swatches" id="arm-candy-swatches"></div>
+      <p class="color-name" id="color-name-display">Choose a colour above</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px">
+        <button class="btn btn-amber btn-lg" onclick="addArmCandyToCart()">Add to Cart — $200</button>
+        <a href="sizing.html" class="btn btn-outline">Sizing Guide</a>
+      </div>
+      <div style="padding:18px;background:var(--cream);border-radius:var(--radius-lg)"><p style="font-size:0.82rem;margin:0;color:var(--mid)">🌍 Made-to-order in Congo · Ships in 4–6 weeks · Handcrafted with hand-strung beads</p></div>
+      <div style="margin-top:24px;padding:18px;background:rgba(196,137,42,0.08);border:1.5px solid rgba(196,137,42,0.2);border-radius:var(--radius-lg)">
+        <h4 style="color:var(--amber);margin-bottom:8px">Want a Custom Colour?</h4>
+        <p style="font-size:0.85rem;margin:0">Don't see your perfect shade? Submit a custom order and describe exactly what you have in mind.</p>
+        <a href="custom-order.html" class="btn btn-outline-amber btn-sm" style="margin-top:12px;display:inline-flex">Custom Arm Candy →</a>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px" class="reveal">
+    <div style="text-align:center"><div style="font-size:2rem;margin-bottom:10px">🪡</div><h4 style="color:var(--forest);margin-bottom:6px">Hand-Strung Beads</h4><p style="font-size:0.85rem">Each bead is carefully hand-strung by artisans in Congo — a craft passed through generations.</p></div>
+    <div style="text-align:center"><div style="font-size:2rem;margin-bottom:10px">🌈</div><h4 style="color:var(--forest);margin-bottom:6px">Vibrant Colours</h4><p style="font-size:0.85rem">Five signature colour palettes, each named after a natural tone — playful, bold, and beautiful.</p></div>
+    <div style="text-align:center"><div style="font-size:2rem;margin-bottom:10px">✦</div><h4 style="color:var(--forest);margin-bottom:6px">Limited Quantities</h4><p style="font-size:0.85rem">Made in small batches. When a colour sells out, it's gone.</p></div>
+  </div>
+</div>
+
+<section class="section" style="background:var(--cream)">
+  <div class="container text-center">
+    <div class="eyebrow reveal" style="color:var(--terra);justify-content:center;margin-bottom:12px">Explore More</div>
+    <h2 style="color:var(--forest)" class="reveal reveal-delay-1">Complete Your Look</h2>
+    <p class="reveal reveal-delay-2" style="margin-bottom:28px">Pair your Arm Candy with our handcrafted apparel.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap" class="reveal reveal-delay-3">
+      <a href="shop.html?filter=apparel" class="btn btn-primary">Shop Apparel</a>
+      <a href="custom-order.html" class="btn btn-outline">Custom Order</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-main"><div class="footer-brand"><div class="footer-brand-name">ZA<span>P</span>ENDA</div><p>African luxury fashion handcrafted in Congo.</p><div class="footer-socials"><a href="https://www.instagram.com/zapendashop" target="_blank" class="footer-social-btn">IG</a><a href="https://wa.me/12489998888" target="_blank" class="footer-social-btn">WA</a></div></div><div class="footer-col"><h4>Shop</h4><a href="shop.html">All Products</a><a href="arm-candy.html">Arm Candy</a><a href="custom-order.html">Custom Order</a></div><div class="footer-col"><h4>Support</h4><a href="mailto:hello@zapendashop.com">Contact</a><a href="shipping.html">Shipping</a><a href="refund.html">Returns</a></div></div>
+  <div class="footer-bottom"><span>© 2024 Zapenda.</span><span>Handcrafted in Congo ✦ Founded in Detroit</span></div>
+</footer>
+<div id="toast-container"></div>
+<script src="js/data.js"></script><script src="js/cart.js"></script><script src="js/main.js"></script>
+</body>
+</html>
