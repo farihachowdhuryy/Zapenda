@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Zapenda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="scroll-progress"></div>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">ZA<span>P</span>ENDA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="cart.html">Cart</a></li><li><a href="custom-order.html" class="nav-custom-order-link">Custom Order</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="account.html" class="nav-icon-btn">👤</a>
+      <a href="cart.html" class="nav-icon-btn" style="position:relative">🛍️ <span class="cart-badge" style="display:none">0</span></a>
+    </div>
+  </div>
+</nav>
+
+<div style="background:var(--pink);padding:48px 32px 32px">
+  <div class="container">
+    <div class="eyebrow" style="color:var(--amber);margin-bottom:12px">Secure Checkout</div>
+    <h1 style="color:#fff">Checkout</h1>
+    <p style="color:rgba(255,255,255,0.82)">All orders are made-to-your-measurements and ship in 4–6 weeks.</p>
+  </div>
+</div>
+
+<div class="checkout-section">
+  <form onsubmit="submitCheckout(event)">
+    <div class="checkout-grid">
+      <div>
+        <div class="checkout-fieldset">
+          <span class="checkout-legend">Contact Information</span>
+          <div class="checkout-row">
+            <div class="checkout-field"><label class="checkout-label">First Name *</label><input type="text" class="checkout-input" required placeholder="First name"></div>
+            <div class="checkout-field"><label class="checkout-label">Last Name *</label><input type="text" class="checkout-input" required placeholder="Last name"></div>
+          </div>
+          <div class="checkout-field"><label class="checkout-label">Email Address *</label><input type="email" class="checkout-input" required placeholder="your@email.com"></div>
+          <div class="checkout-field"><label class="checkout-label">Phone Number</label><input type="tel" class="checkout-input" placeholder="+1 (555) 000-0000"></div>
+        </div>
+        <div class="checkout-fieldset">
+          <span class="checkout-legend">Shipping Address</span>
+          <div class="checkout-field"><label class="checkout-label">Street Address *</label><input type="text" class="checkout-input" required placeholder="123 Main Street"></div>
+          <div class="checkout-field"><label class="checkout-label">Apartment / Suite</label><input type="text" class="checkout-input" placeholder="Apt, suite (optional)"></div>
+          <div class="checkout-row">
+            <div class="checkout-field"><label class="checkout-label">City *</label><input type="text" class="checkout-input" required placeholder="City"></div>
+            <div class="checkout-field"><label class="checkout-label">State / Province *</label><input type="text" class="checkout-input" required placeholder="State"></div>
+          </div>
+          <div class="checkout-row">
+            <div class="checkout-field"><label class="checkout-label">ZIP Code *</label><input type="text" class="checkout-input" required placeholder="ZIP"></div>
+            <div class="checkout-field"><label class="checkout-label">Country *</label><select class="checkout-select" required><option>United States</option><option>Canada</option><option>United Kingdom</option><option>France</option><option>Germany</option><option>Australia</option><option>Other</option></select></div>
+          </div>
+        </div>
+        <div class="checkout-fieldset">
+          <span class="checkout-legend">Payment Details</span>
+          <div class="payment-icons"><span>VISA</span><span>MC</span><span>AMEX</span><span>DISC</span></div>
+          <div class="checkout-field"><label class="checkout-label">Card Number *</label><input type="text" class="checkout-input" required placeholder="1234 5678 9012 3456" maxlength="19"></div>
+          <div class="checkout-row">
+            <div class="checkout-field"><label class="checkout-label">Expiry *</label><input type="text" class="checkout-input" required placeholder="MM / YY" maxlength="7"></div>
+            <div class="checkout-field"><label class="checkout-label">CVV *</label><input type="password" class="checkout-input" required placeholder="•••" maxlength="4"></div>
+          </div>
+          <div class="checkout-field"><label class="checkout-label">Name on Card *</label><input type="text" class="checkout-input" required placeholder="Full name as on card"></div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;font-size:1rem">Place Order — <span id="checkout-btn-total">$0.00</span></button>
+        <p style="font-size:0.78rem;color:var(--light);margin-top:12px;text-align:center">🔒 Secure checkout · By placing your order you agree to our <a href="refund.html" style="color:var(--sage)">Returns Policy</a></p>
+      </div>
+      <div>
+        <div class="order-summary-card" style="position:sticky;top:88px">
+          <h3>Your Order</h3>
+          <div id="checkout-items" style="border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:16px"></div>
+          <div class="summary-row"><span>Subtotal</span><span id="checkout-subtotal">$0.00</span></div>
+          <div class="summary-row"><span>Shipping</span><span id="checkout-shipping" style="color:var(--light)">Calculated</span></div>
+          <div class="summary-row summary-total"><span>Total</span><span id="checkout-total">$0.00</span></div>
+          <div style="margin-top:20px;padding:14px;background:rgba(141,181,112,0.1);border-radius:var(--radius)"><p style="font-size:0.78rem;margin:0;color:var(--mid)">✦ Handcrafted to order in Congo<br>✦ Ships in 4–6 weeks</p></div>
+          <div style="margin-top:16px;text-align:center"><a href="cart.html" style="font-size:0.8rem;color:var(--mid)">← Edit Cart</a></div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="toast-container"></div>
+<script src="js/data.js"></script><script src="js/cart.js"></script><script src="js/main.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{ const btn=document.getElementById('checkout-btn-total'); if(btn)btn.textContent=formatPrice(getCartTotal()); });</script>
+</body>
+</html>
